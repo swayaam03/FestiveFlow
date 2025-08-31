@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FestiveFlow - Your Gateway to a Seamless Ganesh Utsav</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* General Styles */
+        :root {
+            --saffron: #FF9933;
+            --maroon: #800000;
+            --gold: #FFD700;
+            --white: #FFFFFF;
+            --background-light: #FDFDFD; /* Lighter background for the main content area */
+            --subtle-pattern-color: #f0f0f0; /* Very light color for background patterns */
+            --text-dark: #333;
+            --text-medium: #555;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+            /* Subtle repeating pattern for the background */
+            background-image: radial-gradient(var(--subtle-pattern-color) 1px, transparent 1px),
+                              radial-gradient(var(--subtle-pattern-color) 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-blend-mode: multiply;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--gold);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--maroon);
+        }
+
+        p {
+            line-height: 1.5;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        /* Top Header */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-header .logo-mini {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .top-header .logo-mini img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .top-header .logo-mini span {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--maroon);
+        }
+
+        .top-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-nav ul li {
+            margin-left: 25px;
+        }
+
+        .top-nav ul li a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        .top-nav ul li a:hover {
+            color: var(--saffron);
+        }
+
+        /* Login/Register Button */
+        .login-button {
+            padding: 8px 15px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            border-radius: 20px;
+            background: linear-gradient(90deg, var(--saffron), var(--gold));
+            color: var(--white);
+            cursor: pointer;
+            margin-left: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .login-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        /* Hero Section with Video */
+        .hero-section {
+            position: relative;
+            height: 500px; /* Adjust height as needed for the video */
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 100%;
+            color: var(--white);
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+        }
+        
+        .hero-content .main-logo {
+            width: 280px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .hero-content .tagline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--white);
+            opacity: 0.95;
+            margin-top: 10px;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 40px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            width: calc(100% - 60px);
+            max-width: 250px;
+        }
+
+        /* Custom Border for Cards */
+        .feature-card::before,
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            border-radius: inherit;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            z-index: -1;
+        }
+        
+        .feature-card::before {
+            border: 2px solid var(--gold);
+        }
+
+        .feature-card::after {
+            border: 2px dashed var(--maroon);
+            opacity: 0.7;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--saffron), var(--gold));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-icon .icon {
+            width: 40px;
+            height: 40px;
+            color: var(--white);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--maroon);
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            padding: 15px 50px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--saffron), var(--gold));
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-header { padding: 15px 20px; }
+            .top-nav ul { display: none; }
+            .login-button { margin-left: auto; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .hero-section { padding: 50px 20px; }
+            .hero-section .main-logo { width: 220px; }
+            .tagline { font-size: 1rem; }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-card { max-width: 300px; }
+            .cta-button { padding: 12px 30px; font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-header">
+        <div class="logo-mini">
+            <img src="Logo.png" alt="FestiveFlow Mini Logo">
+            <span>FestiveFlow</span>
+        </div>
+        <div class="top-nav">
+            <ul>
+                <li><a href="#">Bookings</a></li>
+                <li><a href="#">Directory</a></li>
+                <li><a href="#">Alerts</a></li>
+            </ul>
+            <a href="#" class="login-button">Login / Register</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="hero-section">
+            <video autoplay muted loop class="hero-video">
+                <source src="your-video-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <img src="path/to/your/full-logo.png" alt="FestiveFlow Logo" class="main-logo">
+                <p class="tagline">Your Gateway to a Seamless Ganesh Utsav</p>
+            </div>
+        </header>
+
+        <section class="features-section">
+            <h2>How FestiveFlow Enhances Your Ganesh Utsav:</h2>
+            <div class="features-grid">
+                
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.41 0-8 3.59-8 8 0 4.41 8 14 8 14s8-9.59 8-14c0-4.41-3.59-8-8-8zm0 11.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <h3>Visarjan Slot Booking</h3>
+                    <p>Book your preferred time slots for a crowd-free experience.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.41 0-8 3.59-8 8 0 4.41 8 14 8 14s8-9.59 8-14c0-4.41-3.59-8-8-8zm0 11.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <h3>Live Crowd Updates</h3>
+                    <p>Check real-time crowd levels at Mandals & Ghats to plan your visit.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 18h-1c0-1.65-1.35-3-3-3s-3 1.35-3 3h-1c0-2.21 1.79-4 4-4s4 1.79 4 4zM12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zM2 18c0-2.21 1.79-4 4-4s4 1.79 4 4h-1c0-1.65-1.35-3-3-3s-3 1.35-3 3H2z"/></svg>
+                    </div>
+                    <h3>VIP Darshan Passes</h3>
+                    <p>Secure priority access for auspicious temple visits with QR passes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.41 0-8 3.59-8 8 0 4.41 8 14 8 14s8-9.59 8-14c0-4.41-3.59-8-8-8zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/></svg>
+                    </div>
+                    <h3>Ganpati Mandal Directory</h3>
+                    <p>Explore popular mandals, their idol timings, and navigate with a built-in map.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.41 0-8 3.59-8 8 0 4.41 8 14 8 14s8-9.59 8-14c0-4.41-3.59-8-8-8zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/></svg>
+                    </div>
+                    <h3>Nearby Mandals</h3>
+                    <p>Find mandals close to your current location using GPS for easy exploration.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 17H4V5h16v12zm0-14H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+                    </div>
+                    <h3>Notifications & Alerts</h3>
+                    <p>Stay informed on Visarjan slots, delays, and important festival updates.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 7V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v3H5c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2h-1zm-4 0h-4V4h4v3zM5 9h2v2H5V9zm0 4h2v2H5v-2zm0 4h2v2H5v-2zm14 2H9v-2h10v2zm0-4H9v-2h10v2zm0-4H9V9h10v2z"/></svg>
+                    </div>
+                    <h3>On-site Verification</h3>
+                    <p>Seamless entry to ghats and mandals with your unique QR passes.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3>Festival-wide Updates</h3>
+                    <p>Get instant alerts on road closures, festival events, and important announcements.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Celebrate Smarter?</h2>
+            <button class="cta-button">Join FestiveFlow Today</button>
+        </section>
+
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', () => {
+                    alert('Redirecting to the Login/Register page...');
+                    // In a real application, you would change the window location
+                    // window.location.href = 'login.html'; 
+                });
+            }
+        });
+    </script>
+</body>
+</html>
