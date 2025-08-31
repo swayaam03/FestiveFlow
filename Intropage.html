@@ -148,27 +148,23 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
-        /* Hero Section with Video */
+        /* Hero Section Styling (Now with Background Image) */
         .hero-section {
             position: relative;
-            height: 500px; /* Adjust height as needed for the video */
+            height: 500px; /* Fixed height for the hero section */
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
+            
+            /* The image is now a background */
+            background-image: url('hero-section2.png'); /* Use the uploaded image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 0;
-        }
-
+        /* Hero Content is now a separate layer on top */
         .hero-content {
             position: relative;
             z-index: 1;
@@ -179,19 +175,20 @@
             text-align: center;
             height: 100%;
             color: var(--white);
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+            /* Dark overlay for better text readability */
+            background: rgba(0, 0, 0, 0.4); 
         }
         
+        /* The main logo is now inside the hero-content */
         .hero-content .main-logo {
             width: 280px;
             height: auto;
-            margin-bottom: 15px;
         }
 
         .hero-content .tagline {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 400;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--white);
             opacity: 0.95;
             margin-top: 10px;
@@ -310,7 +307,7 @@
             h1 { font-size: 2.5rem; }
             h2 { font-size: 1.8rem; }
             .hero-section { padding: 50px 20px; }
-            .hero-section .main-logo { width: 220px; }
+            .hero-content .main-logo { width: 220px; }
             .tagline { font-size: 1rem; }
             .features-grid {
                 grid-template-columns: 1fr;
@@ -338,12 +335,8 @@
 
     <main class="container">
         <header class="hero-section">
-            <video autoplay muted loop class="hero-video">
-                <source src="your-video-file.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
             <div class="hero-content">
-                <img src="path/to/your/full-logo.png" alt="FestiveFlow Logo" class="main-logo">
+                <img src="Logo.png" alt="FestiveFlow Logo" class="main-logo">
                 <p class="tagline">Your Gateway to a Seamless Ganesh Utsav</p>
             </div>
         </header>
