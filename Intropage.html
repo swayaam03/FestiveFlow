@@ -67,13 +67,13 @@
             font-size: 0.95rem;
         }
 
-        /* Top Header */
+        /* Top Header - Saffron Version */
         .top-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background-color: var(--white);
+            background: linear-gradient(90deg, var(--saffron), var(--gold)); /* Saffron-Gold Gradient */
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             border-bottom: 1px solid #eee;
         }
@@ -95,7 +95,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: 600;
             font-size: 1.3rem;
-            color: var(--maroon);
+            color: var(--white); /* Changed color to white for contrast */
         }
 
         .top-nav {
@@ -117,14 +117,14 @@
 
         .top-nav ul li a {
             text-decoration: none;
-            color: var(--text-medium);
+            color: var(--white); /* Changed color to white for contrast */
             font-weight: 500;
             font-size: 1.1rem;
             transition: color 0.2s ease;
         }
 
         .top-nav ul li a:hover {
-            color: var(--saffron);
+            color: var(--maroon); /* Changed hover color */
         }
 
         /* Login/Register Button */
@@ -135,7 +135,7 @@
             text-decoration: none;
             border: none;
             border-radius: 20px;
-            background: linear-gradient(90deg, var(--saffron), var(--gold));
+            background: linear-gradient(90deg, var(--maroon), #a00); /* Adjusted gradient for visibility */
             color: var(--white);
             cursor: pointer;
             margin-left: 20px;
@@ -148,23 +148,27 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
-        /* Hero Section Styling (Now with Background Image) */
+        /* Hero Section with Video */
         .hero-section {
             position: relative;
-            height: 500px; /* Fixed height for the hero section */
+            height: 500px; /* Adjust height as needed for the video */
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             margin-bottom: 40px;
-            
-            /* The image is now a background */
-            background-image: url('hero-section2.png'); /* Use the uploaded image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
         }
 
-        /* Hero Content is now a separate layer on top */
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
@@ -175,20 +179,19 @@
             text-align: center;
             height: 100%;
             color: var(--white);
-            /* Dark overlay for better text readability */
-            background: rgba(0, 0, 0, 0.4); 
+            /* background: rgba(0, 0, 0, 0.4); Dark overlay for better text readability */
         }
         
-        /* The main logo is now inside the hero-content */
         .hero-content .main-logo {
             width: 280px;
             height: auto;
+            margin-bottom: 15px;
         }
 
         .hero-content .tagline {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--white);
             opacity: 0.95;
             margin-top: 10px;
@@ -335,9 +338,10 @@
 
     <main class="container">
         <header class="hero-section">
+            <video src="Hero-section3.mp4" autoplay muted loop class="hero-video"></video>
             <div class="hero-content">
-                <img src="Logo.png" alt="FestiveFlow Logo" class="main-logo">
-                <p class="tagline">Your Gateway to a Seamless Ganesh Utsav</p>
+                <!-- <img src="Logo.png" alt="FestiveFlow Logo" class="main-logo">
+                <p class="tagline">Your Gateway to a Seamless Ganesh Utsav</p> -->
             </div>
         </header>
 
