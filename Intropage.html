@@ -15,8 +15,8 @@
             --maroon: #800000;
             --gold: #FFD700;
             --white: #FFFFFF;
-            --background-light: #FDFDFD; /* Lighter background for the main content area */
-            --subtle-pattern-color: #f0f0f0; /* Very light color for background patterns */
+            --background-light: #FDFDFD;
+            --subtle-pattern-color: #f0f0f0;
             --text-dark: #333;
             --text-medium: #555;
         }
@@ -27,7 +27,6 @@
             padding: 0;
             color: var(--text-dark);
             background-color: var(--background-light);
-            /* Subtle repeating pattern for the background */
             background-image: radial-gradient(var(--subtle-pattern-color) 1px, transparent 1px),
                               radial-gradient(var(--subtle-pattern-color) 1px, transparent 1px);
             background-size: 20px 20px;
@@ -67,13 +66,13 @@
             font-size: 0.95rem;
         }
 
-        /* Top Header - Saffron Version */
+        /* Top Header */
         .top-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
-            background: linear-gradient(90deg, var(--saffron), var(--gold)); /* Saffron-Gold Gradient */
+            background: linear-gradient(90deg, var(--saffron), var(--gold));
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             border-bottom: 1px solid #eee;
         }
@@ -95,7 +94,7 @@
             font-family: 'Playfair Display', serif;
             font-weight: 600;
             font-size: 1.3rem;
-            color: var(--white); /* Changed color to white for contrast */
+            color: var(--white);
         }
 
         .top-nav {
@@ -117,14 +116,14 @@
 
         .top-nav ul li a {
             text-decoration: none;
-            color: var(--white); /* Changed color to white for contrast */
+            color: var(--white);
             font-weight: 500;
             font-size: 1.1rem;
             transition: color 0.2s ease;
         }
 
         .top-nav ul li a:hover {
-            color: var(--maroon); /* Changed hover color */
+            color: var(--maroon);
         }
 
         /* Login/Register Button */
@@ -135,7 +134,7 @@
             text-decoration: none;
             border: none;
             border-radius: 20px;
-            background: linear-gradient(90deg, var(--maroon), #a00); /* Adjusted gradient for visibility */
+            background: linear-gradient(90deg, var(--maroon), #a00);
             color: var(--white);
             cursor: pointer;
             margin-left: 20px;
@@ -151,7 +150,7 @@
         /* Hero Section with Video */
         .hero-section {
             position: relative;
-            height: 500px; /* Adjust height as needed for the video */
+            height: 500px;
             overflow: hidden;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -179,7 +178,7 @@
             text-align: center;
             height: 100%;
             color: var(--white);
-            /* background: rgba(0, 0, 0, 0.4); Dark overlay for better text readability */
+            background: rgba(0, 0, 0, 0.4);
         }
         
         .hero-content .main-logo {
@@ -318,6 +317,111 @@
             .feature-card { max-width: 300px; }
             .cta-button { padding: 12px 30px; font-size: 1.1rem; }
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-card .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .modal-card .close-btn:hover {
+            color: var(--maroon);
+        }
+
+        .modal-card h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .modal-card input {
+            width: 90%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .modal-card .submit-btn {
+            width: 90%;
+            padding: 15px;
+            margin-top: 10px;
+            background: linear-gradient(90deg, var(--saffron), var(--gold));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .modal-card .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .modal-card .toggle-link {
+            display: block;
+            margin-top: 20px;
+            color: var(--maroon);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Hide forms by default */
+        #signup-form, #login-form {
+            display: none;
+        }
+        
     </style>
 </head>
 <body>
@@ -339,10 +443,6 @@
     <main class="container">
         <header class="hero-section">
             <video src="Hero-section3.mp4" autoplay muted loop class="hero-video"></video>
-            <div class="hero-content">
-                <!-- <img src="Logo.png" alt="FestiveFlow Logo" class="main-logo">
-                <p class="tagline">Your Gateway to a Seamless Ganesh Utsav</p> -->
-            </div>
         </header>
 
         <section class="features-section">
@@ -377,8 +477,8 @@
                     <div class="card-icon">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c-4.41 0-8 3.59-8 8 0 4.41 8 14 8 14s8-9.59 8-14c0-4.41-3.59-8-8-8zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2v-6zm0 8h2v2h-2v-2z"/></svg>
                     </div>
-                    <h3>Ganpati Mandal Directory</h3>
-                    <p>Explore popular mandals, their idol timings, and navigate with a built-in map.</p>
+                    <h3>Live Darshan</h3>
+                    <p>Explore popular mandals and pray to the god from anywhere any time.</p>
                 </div>
 
                 <div class="feature-card">
@@ -423,16 +523,78 @@
 
     </main>
     
+    <div id="login-modal" class="modal-overlay">
+        <div class="modal-card">
+            <span class="close-btn">&times;</span>
+            <div id="login-form">
+                <h3>Welcome Back!</h3>
+                <input type="email" placeholder="Email or Mobile" required>
+                <input type="password" placeholder="Password" required>
+                <button class="submit-btn">Login</button>
+                <a href="#" class="toggle-link" data-form="signup">Create a New Account</a>
+            </div>
+            
+            <div id="signup-form">
+                <h3>Create an Account</h3>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email or Mobile" required>
+                <input type="password" placeholder="Password" required>
+                <button class="submit-btn">Sign Up</button>
+                <a href="#" class="toggle-link" data-form="login">Already have an account? Login</a>
+            </div>
+        </div>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const ctaButton = document.querySelector('.cta-button');
-            if (ctaButton) {
-                ctaButton.addEventListener('click', () => {
-                    alert('Redirecting to the Login/Register page...');
-                    // In a real application, you would change the window location
-                    // window.location.href = 'login.html'; 
+            const loginButton = document.querySelector('.login-button');
+            const modal = document.getElementById('login-modal');
+            const closeBtn = document.querySelector('.close-btn');
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const toggleLinks = document.querySelectorAll('.toggle-link');
+
+            // Show the modal when the CTA or Login button is clicked
+            ctaButton.addEventListener('click', () => {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                modal.classList.add('show');
+            });
+
+            loginButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                modal.classList.add('show');
+            });
+
+            // Close the modal when the close button is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('show');
+            });
+
+            // Close the modal when clicking outside of it
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+
+            // Toggle between login and signup forms
+            toggleLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetForm = e.target.getAttribute('data-form');
+                    if (targetForm === 'signup') {
+                        loginForm.style.display = 'none';
+                        signupForm.style.display = 'block';
+                    } else if (targetForm === 'login') {
+                        loginForm.style.display = 'block';
+                        signupForm.style.display = 'none';
+                    }
                 });
-            }
+            });
         });
     </script>
 </body>
